@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — Ayan Ajmeri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+
+<div class="admin-shell">
+  <aside class="admin-sidebar">
+    <div class="brand"><span class="brand-dot"></span>Ayan Ajmeri</div>
+    <ul class="admin-nav" id="admin-nav">
+      <li><button data-target="panel-home" class="is-active">Home Page</button></li>
+      <li><button data-target="panel-portfolio">Portfolio Page</button></li>
+      <li><button data-target="panel-about">About Page</button></li>
+      <li><button data-target="panel-services">Services</button></li>
+      <li><button data-target="panel-awards">Awards &amp; Achievements</button></li>
+      <li><button data-target="panel-contact">Contact Information</button></li>
+      <li><button data-target="panel-images">Images &amp; Media</button></li>
+      <li><button data-target="panel-social">Social Media Links</button></li>
+      <li><button data-target="panel-themes">Color Themes</button></li>
+      <li><button data-target="panel-settings">Website Settings</button></li>
+      <li><button data-target="panel-account">Admin Account</button></li>
+    </ul>
+    <a class="view-live" href="../index.html" target="_blank" rel="noopener">↗ View live site</a>
+    <button class="logout-btn" id="logout-btn">Log out</button>
+  </aside>
+
+  <main class="admin-main">
+
+    <!-- ================= HOME ================= -->
+    <section class="admin-panel is-active" id="panel-home">
+      <h2>Home Page</h2>
+      <p class="panel-sub">Hero text, profile photo, and the four stat counters.</p>
+
+      <div class="a-card">
+        <div class="a-card-top"><span class="a-card-title">Hero</span></div>
+        <div class="a-row-2">
+          <div class="a-field"><label>Role — first word</label><input type="text" id="home-role-a"></div>
+          <div class="a-field"><label>Role — second word</label><input type="text" id="home-role-b"></div>
+        </div>
+        <div class="a-field"><label>Tagline</label><textarea id="home-tagline"></textarea></div>
+        <div class="a-field">
+          <label>Profile photo</label>
+          <div class="a-thumb-preview" id="home-photo-preview">No photo uploaded</div>
+          <input type="file" accept="image/*" id="home-photo-input">
+          <button class="a-btn a-btn-ghost" id="home-photo-clear" style="margin-top:10px;">Remove photo</button>
+        </div>
+      </div>
+
+      <div class="a-card">
+        <div class="a-card-top"><span class="a-card-title">Stats</span></div>
+        <div id="stats-list"></div>
+      </div>
+
+      <div class="a-actions">
+        <button class="a-btn a-btn-primary" id="save-home">Save Home Page</button>
+        <span class="a-save-note" id="note-home">Saved — live on your next page load.</span>
+      </div>
+    </section>
+
+    <!-- ================= PORTFOLIO ================= -->
+    <section class="admin-panel" id="panel-portfolio">
+      <h2>Portfolio Page</h2>
+      <p class="panel-sub">Add, edit, or remove projects. These also feed the Home page's featured work section.</p>
+      <div id="projects-list"></div>
+      <button class="a-btn a-btn-add" id="add-project-btn">+ Add Project</button>
+      <div class="a-actions" style="margin-top:22px;">
+        <button class="a-btn a-btn-primary" id="save-projects">Save Portfolio</button>
+        <span class="a-save-note" id="note-projects">Saved — live on your next page load.</span>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section class="admin-panel" id="panel-about">
+      <h2>About Page</h2>
+      <p class="panel-sub">Your story paragraphs and core skill meters. (The milestone timeline isn't editable here yet — let me know if you want that added.)</p>
+
+      <div class="a-card">
+        <div class="a-card-top"><span class="a-card-title">My Story</span></div>
+        <div class="a-field"><label>Paragraph 1</label><textarea id="about-p0"></textarea></div>
+        <div class="a-field"><label>Paragraph 2</label><textarea id="about-p1"></textarea></div>
+        <div class="a-field"><label>Paragraph 3</label><textarea id="about-p2"></textarea></div>
+      </div>
+
+      <div class="a-card">
+        <div class="a-card-top"><span class="a-card-title">Core Skills</span></div>
+        <div id="skills-list"></div>
+      </div>
+
+      <div class="a-actions">
+        <button class="a-btn a-btn-primary" id="save-about">Save About Page</button>
+        <span class="a-save-note" id="note-about">Saved — live on your next page load.</span>
+      </div>
+    </section>
+
+    <!-- ================= SERVICES ================= -->
+    <section class="admin-panel" id="panel-services">
+      <h2>Services</h2>
+      <p class="panel-sub">Add, edit, remove, or reprice each service.</p>
+      <div id="services-list"></div>
+      <button class="a-btn a-btn-add" id="add-service-btn">+ Add Service</button>
+      <div class="a-actions" style="margin-top:22px;">
+        <button class="a-btn a-btn-primary" id="save-services">Save Services</button>
+        <span class="a-save-note" id="note-services">Saved — live on your next page load.</span>
+      </div>
+    </section>
+
+    <!-- ================= AWARDS ================= -->
+    <section class="admin-panel" id="panel-awards">
+      <h2>Awards &amp; Achievements</h2>
+      <p class="panel-sub">Add, edit, or remove entries on your achievements timeline.</p>
+      <div id="awards-list"></div>
+      <button class="a-btn a-btn-add" id="add-award-btn">+ Add Achievement</button>
+      <div class="a-actions" style="margin-top:22px;">
+        <button class="a-btn a-btn-primary" id="save-awards">Save Awards</button>
+        <span class="a-save-note" id="note-awards">Saved — live on your next page load.</span>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section class="admin-panel" id="panel-contact">
+      <h2>Contact Information</h2>
+      <p class="panel-sub">This email is also where messages from your contact form get delivered.</p>
+      <div class="a-card">
+        <div class="a-field"><label>Email</label><input type="email" id="contact-email"></div>
+        <div class="a-field"><label>WhatsApp number (with country code)</label><input type="text" id="contact-whatsapp" placeholder="+91XXXXXXXXXX"></div>
+      </div>
+      <div class="a-actions">
+        <button class="a-btn a-btn-primary" id="save-contact">Save Contact Info</button>
+        <span class="a-save-note" id="note-contact">Saved — live on your next page load.</span>
+      </div>
+    </section>
+
+    <!-- ================= IMAGES ================= -->
+    <section class="admin-panel" id="panel-images">
+      <h2>Images &amp; Media</h2>
+      <p class="panel-sub">Your profile photo lives on the Home Page tab. Project thumbnails live with each project on the Portfolio tab — that keeps each image right next to what it belongs to.</p>
+      <div class="callout" id="storage-usage">Checking storage usage…</div>
+      <button class="a-btn a-btn-ghost" id="clear-images-btn">Remove all uploaded images</button>
+    </section>
+
+    <!-- ================= SOCIAL ================= -->
+    <section class="admin-panel" id="panel-social">
+      <h2>Social Media Links</h2>
+      <p class="panel-sub">These update the icons in the footer on every page and on the Contact page.</p>
+      <div class="a-card">
+        <div class="a-field"><label>Instagram URL</label><input type="url" id="social-instagram"></div>
+        <div class="a-field"><label>YouTube URL</label><input type="url" id="social-youtube"></div>
+        <div class="a-field"><label>GitHub URL</label><input type="url" id="social-github"></div>
+        <div class="a-field"><label>LinkedIn URL</label><input type="url" id="social-linkedin"></div>
+        <div class="a-field"><label>LeetCode URL</label><input type="url" id="social-leetcode"></div>
+      </div>
+      <div class="a-actions">
+        <button class="a-btn a-btn-primary" id="save-social">Save Social Links</button>
+        <span class="a-save-note" id="note-social">Saved — live on your next page load.</span>
+      </div>
+    </section>
+
+    <!-- ================= THEMES ================= -->
+    <section class="admin-panel" id="panel-themes">
+      <h2>Color Themes</h2>
+      <p class="panel-sub">Pick a theme to instantly recolor every page. It's saved automatically and stays active after refreshing.</p>
+      <div class="theme-grid" id="theme-grid"></div>
+    </section>
+
+    <!-- ================= SETTINGS ================= -->
+    <section class="admin-panel" id="panel-settings">
+      <h2>Website Settings</h2>
+      <p class="panel-sub">Back up your content, move it to another browser, or start fresh.</p>
+      <div class="a-card">
+        <div class="a-card-top"><span class="a-card-title">Backup &amp; transfer</span></div>
+        <p style="font-size:14px; color:var(--ink-soft); margin-bottom:16px;">Since this site has no server, your edits are saved in this browser only. Download a backup file here, and use Import on another browser or device to bring your content along.</p>
+        <button class="a-btn a-btn-ghost" id="export-btn">Download Backup (.json)</button>
+        <div style="margin-top:14px;">
+          <label class="a-btn a-btn-ghost" for="import-input" style="cursor:pointer;">Import Backup (.json)</label>
+          <input type="file" accept="application/json" id="import-input" style="display:none;">
+        </div>
+      </div>
+      <div class="a-card">
+        <div class="a-card-top"><span class="a-card-title">Reset</span></div>
+        <p style="font-size:14px; color:var(--ink-soft); margin-bottom:16px;">Wipes every edit made in the Admin Panel and restores the site's original content.</p>
+        <button class="a-btn a-btn-ghost" id="reset-btn">Reset to Defaults</button>
+      </div>
+    </section>
+
+    <!-- ================= ACCOUNT ================= -->
+    <section class="admin-panel" id="panel-account">
+      <h2>Admin Account</h2>
+      <p class="panel-sub">Change the username and password used to log in.</p>
+      <div class="callout warn">
+        Default demo login — please change this before the site goes live:<br>
+        Username: <code>AyanAjmeri</code> &nbsp; Password: <code>@Aditi</code>
+      </div>
+      <div class="a-card">
+        <div class="a-field"><label>Current password</label><input type="password" id="acc-current"></div>
+        <div class="a-field"><label>New username</label><input type="text" id="acc-username"></div>
+        <div class="a-field"><label>New password</label><input type="password" id="acc-password"></div>
+        <div class="a-field"><label>Confirm new password</label><input type="password" id="acc-password-confirm"></div>
+      </div>
+      <div class="a-actions">
+        <button class="a-btn a-btn-primary" id="save-account">Update Credentials</button>
+        <span class="a-save-note" id="note-account">Updated.</span>
+      </div>
+      <p class="login-hint" style="margin-top:22px;">Reminder: this password only blocks casual visitors — it's checked in your browser, not on a server. Anyone who inspects the page's code (or browser storage) could find it. Don't reuse a password you use elsewhere.</p>
+    </section>
+
+  </main>
+</div>
+
+<script src="../js/site-data.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

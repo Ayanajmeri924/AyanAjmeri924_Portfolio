@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login — Ayan Ajmeri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+
+<div class="login-shell">
+  <div class="login-card">
+    <div class="brand"><span class="brand-dot"></span>Ayan Ajmeri</div>
+    <h1>Admin login</h1>
+    <p class="sub">Sign in to manage the website's content, images, and theme.</p>
+
+    <div class="login-error" id="login-error">Incorrect username or password.</div>
+
+    <form id="login-form">
+      <div class="form-row">
+        <label for="username">Username</label>
+        <input type="text" id="username" autocomplete="username" required>
+      </div>
+      <div class="form-row">
+        <label for="password">Password</label>
+        <input type="password" id="password" autocomplete="current-password" required>
+      </div>
+      <button type="submit" class="a-btn a-btn-primary" style="width:100%; justify-content:center;">Log In</button>
+    </form>
+
+    <p class="login-hint">This login only guards casual access on this static site — it checks the password in your browser, not on a server, so it isn't real security. Don't rely on it to protect sensitive information, and change the default password from Website Settings once you're in.</p>
+  </div>
+</div>
+
+<script src="../js/site-data.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
